@@ -1,77 +1,44 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Exercício 5b: Troca de Imagem</title>
-  <style>
-    /* Estilo básico para centralizar a imagem e o texto */
-    body {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #f0f0f0;
-    }
-
-    /* Contêiner para a imagem e o texto */
-    .image-container {
-      text-align: center;
-    }
-
-    /* Estilo da imagem */
-    img {
-      width: 200px; /* Largura fixa */
-      height: 200px; /* Altura fixa */
-      border: 2px solid black;
-      border-radius: 10px; /* Borda arredondada */
-      transition: transform 0.3s ease; /* Efeito de transição suave */
-    }
-
-    /* Efeito de escala ao passar o mouse */
-    img:hover {
-      transform: scale(1.05); /* Aumenta ligeiramente o tamanho */
-    }
-
-    /* Estilo do texto principal */
-    #myText {
-      margin-top: 20px;
-      font-size: 1.5em;
-      font-weight: bold;
-      color: #333;
-    }
-
-    /* Estilo do texto adicional */
-    .subtext {
-      margin-top: 10px;
-      font-size: 1.2em;
-      color: #555;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alterar Imagem</title>
+    <style>
+        #texto {
+            font-size: 18px;
+            text-align: center;
+            margin-top: 20px;
+        }
+        #imagem {
+            width: 300px;
+            height: 200px;
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
 </head>
 <body>
-  <!-- Contêiner para a imagem e o texto -->
-  <div class="image-container">
-    <!-- Imagem que será alterada -->
-    <img id="myImage" src="image.png" alt="Imagem 1">
+    <img id="imagem" src="praia-dia.jpg" alt="praia-noite.jpg" onmouseover="trocarImagem()" onmouseout="voltarImagem()">
+    <p id="texto">Passe o mouse sobre a imagem para vê-la mudar.</p>
 
-    <!-- Texto principal que será modificado -->
-    <p id="myText">Passe o mouse sobre a imagem</p>
+    <script>
+      const imagemOriginal = "praia-dia.jpg";
+      const imagemAlterada = "praia-noite.jpg";
 
-    <!-- Texto adicional -->
-    <p class="subtext" id="subText">Sabrina Carpenter - Linda!</p>
-  </div>
+        function trocarImagem() {
+            const imagem = document.getElementById("imagem");
+            imagem.src = imagemAlterada;
+            const texto = document.getElementById("texto");
+            texto.textContent = "A imagem foi alterada!";
+        }
 
-  <!-- Script JavaScript embutido na página -->
-  <script>
-
-
-    // 1ª Digitação (Resolva aqui o exercício)
-
-
-  </script>
+        function voltarImagem() {
+            const imagem = document.getElementById("imagem");
+            imagem.src = imagemOriginal;
+            const texto = document.getElementById("texto");
+            texto.textContent = "Passe o mouse sobre a imagem para vê-la mudar.";
+        }
+    </script>
 </body>
 </html>
